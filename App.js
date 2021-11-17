@@ -1,12 +1,19 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import AppLoading from 'expo-app-loading';
 import Header from './components/Header';
 import StartGameScreen from './screens/StartGameScreen';
-import { StatusBar } from 'expo-status-bar';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+  const [loaded] = useFonts({
+    Montagu: require('./assets/fonts/static/MontaguSlab_36pt/MontaguSlab_36pt-Bold.ttf')
+  });
   const [confirmedNumber, setconfirmedNumber] = useState();
+
+  if(!loaded) return <AppLoading />;
+
   const screen = confirmedNumber 
   ? <Text>Game</Text>
   : <StartGameScreen onStarGame={setconfirmedNumber} />

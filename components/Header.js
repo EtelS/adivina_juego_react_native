@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     },
     headerTitle:{
         color: 'black',
-        fontSize:22
+        fontSize:22,
+        fontFamily:'Montagu'
     }
 })
 export default Header;
