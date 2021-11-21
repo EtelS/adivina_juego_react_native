@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         elevation: 15,
         backgroundColor:'#fff',
         borderRadius: 10
-    }
+    },
 });
 
 export default Card;

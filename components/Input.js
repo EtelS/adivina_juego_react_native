@@ -13,6 +13,10 @@ const Input = (props) =>{
 };
 const styles = StyleSheet.create({
     input:{
+        height:50,
+        width:50,
+        borderBottomColor:'#000',
+        borderBottomWidth:1,
         
     }
 })

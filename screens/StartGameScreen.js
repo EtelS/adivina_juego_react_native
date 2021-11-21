@@ -24,8 +24,8 @@ const StartGameScreen= ({onStarGame})=> {
     const handleStartGame = () =>onStarGame(confirmedNumber)
 
     const confirmedOuput = confirmedNumber ?(
-        <Card>
-            <Text>Numero seleccionado: {confirmedNumber}</Text>
+        <Card style={styles.inputContainer}>
+            <Text style= {styles.textNumero}>Numero seleccionado: {confirmedNumber}</Text>
             <Button onPress={handleStartGame} title="EMPEZAR EL JUEGO" color= {colors.primary}/>
         </Card>
     ): null ;
@@ -81,6 +81,10 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         paddingHorizontal:15,
         
+    },
+    textNumero:{
+        fontWeight:'bold',
+        padding:5,
     }
 })
 
