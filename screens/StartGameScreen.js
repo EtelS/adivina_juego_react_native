@@ -1,4 +1,12 @@
-import { Button, Keyboard, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import {
+        Button,
+        Dimensions,
+        Keyboard,
+        StyleSheet,
+        Text,
+        TouchableWithoutFeedback,
+        View
+} from 'react-native';
 import React, {useState} from 'react';
 
 import Card from '../components/Card';
@@ -46,8 +54,10 @@ const StartGameScreen= ({onStarGame})=> {
                         onChangeText= {handleInputValue}
                         />
                     <View style={styles.buttonContainer}>
-                        <Button title="Limpiar"  color= {colors.accent} onPress={handleResetInput}/>
-                        <Button title="Confirmar" color= {colors.primary} onPress= {handleConfirmInput}/>
+                        <View style={styles.button}>
+                            <Button title="Limpiar"  color= {colors.accent} onPress={handleResetInput}/>
+                            <Button title="Confirmar" color= {colors.primary} onPress= {handleConfirmInput}/>
+                        </View>
                     </View>
                 </Card>
                 { confirmedOuput}
@@ -61,7 +71,7 @@ const StartGameScreen= ({onStarGame})=> {
 const styles = StyleSheet.create({
     screen:{
             flex:1,
-            padding:10,
+            // padding:10,
             alignItems:'center'
     },
     title:{
@@ -69,19 +79,23 @@ const styles = StyleSheet.create({
         marginVertical:10
     },
     inputContainer:{
-        width: 300,
-        maxWidth: '80%',
-        marginVertical:20,
-        alignItems:'center'
-        
+        width: '100%',
+        // marginHorizontal:'30%',
+        marginVertical:10,
+        alignItems:'center',
+        padding: 20,  
     },
+  
     buttonContainer:{
         flexDirection:'row',
         width:'100%',
         justifyContent:'space-between',
-        paddingHorizontal:15,
+        // paddingHorizontal:15,
         
-    }
+    },
+    // button:{
+    //     width: Dimensions.get('window').width / 4,
+    // },
 })
 
 export default StartGameScreen;
