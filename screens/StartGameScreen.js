@@ -8,7 +8,7 @@ import {
         TouchableWithoutFeedback,
         View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Card from '../components/Card';
 import Input from '../components/Input';
@@ -17,6 +17,21 @@ import colors from '../constants/colors';
 const StartGameScreen= ({onStarGame})=> {
     const [enteredValue, setenteredValue] = useState('');
     const [confirmedNumber, setconfirmedNumber] = useState(null)
+    const [isPortrait, setisPortrait]= useState(true);
+
+    const onPortrait = () =>{
+        const dim= Dimensions.get('screen');
+        return dim.height >= dim.width;
+    }
+
+    const statePortrait= () => setisPortrait(onPortrait());
+
+    useEffect(() =>{
+            Dimensions.addEventListener('change', statePortrait);
+            return() =>{
+                Dimensions.removeEventListener('change', statePortrait)
+            };
+    }, [])
 
     const handleInputValue= text =>{
         setenteredValue(text.replace(/[^0-9]/g,''));
